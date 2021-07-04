@@ -1,6 +1,7 @@
-/* Area Management System*/
-/* 1602-19-737-042 T Shreya */
-/* 1602-19-737-183 P Keerthana */
+/* Area Management System */
+/* T Shreya 1602-19-737-042 */
+/* P.Keerthana 1602-19-737-183 */
+
 import java.sql.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,11 +23,12 @@ public class  dbms_project extends JFrame{
     JTextField tf,tfAName,tfPin,tfHName,tfSpec;
     JButton bInsertA,bInsertH,bInsertR,bDeleteA,bDeleteH,bDeleteR,bUpdateA,bUpdateS,bUpdateI,bDeleteS,bDeleteI;
     JButton bUpdateAOk,bUpdateH,bUpdateR,bUpdateHOk,bUpdateROk,bInsertS,bInsertI,bUpdateSOk,bUpdateIOk;
+    JLabel lbAdel,lbHdel,lbRdel,lbSdel,lbIdel,lbAupd,lbHupd,lbRupd,lbSupd,lbIupd;
     JLabel lbAName,lbPin,lbHName,lbSpec,lbDPin,lbUPin,lbUName,lbUAS,lbUAI,lbUComS,lbUCatI; 
     JLabel lbRName,lbCuisine,lbType,lbClas,lbRat,lbOT,lbCT,lbUDPin,lbADet,lbHDet,lbRDet,lbSDet,lbIDet;
     JLabel lbSName,lbCom,lbIName,lbCat,lbUSS,lbUII,lbUDSS,lbUDAS,lbCatS,lbUDII,lbUDAI;
     JLabel lbDH,lbDA,lbDAR,lbDR,lbUAH,lbUHH,lbUAR,lbURR,lbUDAH,lbUDHH,lbUCatS,lbUComI,lbDS,lbDI;
-    JLabel lbUDAR,lbUDRR,lbUSpecH,lbUTyR,lbURatR,lbUClsR,lbUO_tR,lbUC_tR,lbUCuiR;
+    JLabel lbUDAR,lbUDRR,lbUSpecH,lbUTyR,lbURatR,lbUClsR,lbUO_tR,lbUC_tR,lbUCuiR,lbAIns,lbHIns,lbRIns,lbSIns,lbIIns;
 	JTextField tfRName,tfCuisine,tfType,tfClas,tfRat,tfOt,tfCt,tfUAS,tfUAI,tfUSS,tfUII;
 	JTextField tfUName,tfUDPin,tfUAH,tfUAR,tfUHH,tfURR,tfUSpecH,tfUTyR,tfUComS,tfCat,tfUCatI;
 	JTextField tfUCuiR,tfUClsR,tfURatR,tfUO_tR,tfUC_tR,tfSName,tfIName,tfCom,tfUCat;
@@ -42,7 +44,7 @@ public class  dbms_project extends JFrame{
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setTitle("dbms_project");
 		JLabel welcome = new JLabel("WELCOME TO");
-		JLabel areamana = new JLabel("AREA MANAGEMENET SYSTEM!");
+		JLabel areamana = new JLabel("AREA MANAGEMENT SYSTEM!");
 		add(welcome);
 		add(areamana);
 		welcome.setBounds(500,150,400,300);
@@ -183,6 +185,17 @@ miUpdateI.addActionListener(new ActionListener(){
                 add(lbUAI);
                 bUpdateI.setBounds(200,500,150,30);
                 add(bUpdateI);
+                lbIupd = new JLabel("Instituitions Updation Form");
+        		lbIupd.setBounds(400,30,400,50);
+        		lbIupd.setFont(new Font("Verdana",Font.ITALIC,24));
+                lbIupd.setForeground(Color.blue);
+                lbIupd.setBackground(Color.white);
+                lbIupd.setOpaque(true);
+        		lbIupd.setHorizontalAlignment(JLabel.CENTER);
+        		lbIupd.setVerticalAlignment(JLabel.CENTER);
+        		add(lbIupd);
+        		Border border = BorderFactory.createLineBorder(Color.blue);
+        		lbIupd.setBorder(border);
                 String dbURL = "jdbc:oracle:thin:@localhost:1521:xe";
            		String username = "it19737042";
            		String password = "vasavi";
@@ -301,6 +314,17 @@ miInsertI.addActionListener(new ActionListener() {
     		    lbCat  = new JLabel("Category:");
     		    tfIName = new JTextField(30);
     		    tfCat = new JTextField(30);
+    		    lbIIns = new JLabel("Instituitions Insertion Form");
+    			lbIIns.setBounds(300,30,400,50);
+    			lbIIns.setFont(new Font("Verdana",Font.ITALIC,24));
+    	        lbIIns.setForeground(Color.black);
+    	        lbIIns.setBackground(Color.lightGray);
+    	        lbIIns.setOpaque(true);
+    			lbIIns.setHorizontalAlignment(JLabel.CENTER);
+    			lbIIns.setVerticalAlignment(JLabel.CENTER);
+    			add(lbIIns);
+    			Border border = BorderFactory.createLineBorder(Color.black);
+    			lbIIns.setBorder(border);
     			add(lbIName);
     			add(lbAName);
     			add(lbCat);
@@ -373,13 +397,15 @@ miViewI.addActionListener(new ActionListener(){
 		repaint();
 		lbIDet = new JLabel("INSTITUITION DETAILS");
 		lbIDet.setBounds(450,30,300,50);
-		lbIDet.setFont(new Font("Verdana",Font.PLAIN,24));
+		lbIDet.setFont(new Font("Verdana",Font.ITALIC,24));
         lbIDet.setForeground(Color.white);
         lbIDet.setBackground(Color.lightGray);
         lbIDet.setOpaque(true);
 		lbIDet.setHorizontalAlignment(JLabel.CENTER);
 		lbIDet.setVerticalAlignment(JLabel.CENTER);
 		add(lbIDet);
+		Border border = BorderFactory.createLineBorder(Color.black);
+		lbIDet.setBorder(border);
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			Connection connection = DriverManager.getConnection(dbURL,username,password);
@@ -410,10 +436,10 @@ miDeleteI.addActionListener(new ActionListener(){
 		repaint();
 		cDeleteAI= new JComboBox();
 		cDeleteII = new JComboBox();
-		lbDI = new JLabel("Choose Instituition:");
-		lbDA = new JLabel("Choose Area: ");
+		lbDI = new JLabel("Choose Area:");
+		lbDA = new JLabel("Choose Instituition: ");
 		lbDI.setBounds(100,100,100,30);
-		lbDA.setBounds(100,300,100,30);
+		lbDA.setBounds(100,300,150,30);
 		taDeleteI = new JTextArea();
 		add(taDeleteI);
 		taDeleteI.setBounds(500,100,500,500);
@@ -422,6 +448,17 @@ miDeleteI.addActionListener(new ActionListener(){
 		bDeleteI = new JButton("DELETE");
 		bDeleteI.setBounds(200,500,150,30);
 		add(bDeleteI);
+		lbIdel = new JLabel("Instituitions Deletion Form");
+		lbIdel.setBounds(350,30,400,50);
+		lbIdel.setFont(new Font("Verdana",Font.ITALIC,24));
+        lbIdel.setForeground(Color.black);
+        lbIdel.setBackground(Color.white);
+        lbIdel.setOpaque(true);
+		lbIdel.setHorizontalAlignment(JLabel.CENTER);
+		lbIdel.setVerticalAlignment(JLabel.CENTER);
+		add(lbIdel);
+		Border border = BorderFactory.createLineBorder(Color.black);
+		lbIdel.setBorder(border);
 	    String dbURL = "jdbc:oracle:thin:@localhost:1521:xe";
    		String username = "it19737042";
    		String password = "vasavi";
@@ -497,8 +534,8 @@ miDeleteS.addActionListener(new ActionListener(){
 		repaint();
 		cDeleteAS= new JComboBox();
 		cDeleteSS = new JComboBox();
-		lbDS = new JLabel("Choose Store:");
-		lbDA = new JLabel("Choose Area: ");
+		lbDS = new JLabel("Choose Area:");
+		lbDA = new JLabel("Choose Store: ");
 		lbDS.setBounds(100,100,100,30);
 		lbDA.setBounds(100,300,100,30);
 		taDeleteS = new JTextArea();
@@ -509,6 +546,17 @@ miDeleteS.addActionListener(new ActionListener(){
 		bDeleteS = new JButton("DELETE");
 		bDeleteS.setBounds(200,500,150,30);
 		add(bDeleteS);
+		lbSdel = new JLabel("Stores Deletion Form");
+		lbSdel.setBounds(350,30,400,50);
+		lbSdel.setFont(new Font("Verdana",Font.ITALIC,24));
+        lbSdel.setForeground(Color.black);
+        lbSdel.setBackground(Color.white);
+        lbSdel.setOpaque(true);
+		lbSdel.setHorizontalAlignment(JLabel.CENTER);
+		lbSdel.setVerticalAlignment(JLabel.CENTER);
+		add(lbSdel);
+		Border border = BorderFactory.createLineBorder(Color.black);
+		lbSdel.setBorder(border);
 	    String dbURL = "jdbc:oracle:thin:@localhost:1521:xe";
    		String username = "it19737042";
    		String password = "vasavi";
@@ -587,13 +635,15 @@ miViewS.addActionListener(new ActionListener(){
 		repaint();
 		lbSDet = new JLabel("STORE DETAILS");
 		lbSDet.setBounds(500,30,200,50);
-		lbSDet.setFont(new Font("Verdana",Font.PLAIN,24));
+		lbSDet.setFont(new Font("Verdana",Font.ITALIC,24));
         lbSDet.setForeground(Color.white);
         lbSDet.setBackground(Color.lightGray);
         lbSDet.setOpaque(true);
 		lbSDet.setHorizontalAlignment(JLabel.CENTER);
 		lbSDet.setVerticalAlignment(JLabel.CENTER);
 		add(lbSDet);
+		Border border = BorderFactory.createLineBorder(Color.BLACK);
+		lbSDet.setBorder(border);
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			Connection connection = DriverManager.getConnection(dbURL,username,password);
@@ -655,6 +705,17 @@ miUpdateS.addActionListener(new ActionListener(){
         add(lbUAS);
         bUpdateS.setBounds(200,500,150,30);
         add(bUpdateS);
+        lbSupd = new JLabel("Stores Updation Form");
+		lbSupd.setBounds(400,30,400,50);
+		lbSupd.setFont(new Font("Verdana",Font.ITALIC,24));
+        lbSupd.setForeground(Color.blue);
+        lbSupd.setBackground(Color.white);
+        lbSupd.setOpaque(true);
+		lbSupd.setHorizontalAlignment(JLabel.CENTER);
+		lbSupd.setVerticalAlignment(JLabel.CENTER);
+		add(lbSupd);
+		Border border = BorderFactory.createLineBorder(Color.blue);
+		lbSupd.setBorder(border);
         String dbURL = "jdbc:oracle:thin:@localhost:1521:xe";
    		String username = "it19737042";
    		String password = "vasavi";
@@ -773,6 +834,17 @@ miInsertS.addActionListener(new ActionListener() {
     		    lbCom  = new JLabel("Commodities:");
     		    tfSName = new JTextField(30);
     		    tfCom = new JTextField(30);
+    		    lbSIns = new JLabel("Stores Insertion Form");
+    			lbSIns.setBounds(300,30,400,50);
+    			lbSIns.setFont(new Font("Verdana",Font.ITALIC,24));
+    	        lbSIns.setForeground(Color.black);
+    	        lbSIns.setBackground(Color.lightGray);
+    	        lbSIns.setOpaque(true);
+    			lbSIns.setHorizontalAlignment(JLabel.CENTER);
+    			lbSIns.setVerticalAlignment(JLabel.CENTER);
+    			add(lbSIns);
+    			Border border = BorderFactory.createLineBorder(Color.black);
+    			lbSIns.setBorder(border);
     			add(lbSName);
     			add(lbAName);
     			add(lbCom);
@@ -905,6 +977,17 @@ miUpdateR.addActionListener(new ActionListener(){
                 add(lbUAR);
                 bUpdateR.setBounds(200,500,150,30);
                 add(bUpdateR);
+                lbRupd = new JLabel("Restaurants Updation Form");
+        		lbRupd.setBounds(400,30,400,50);
+        		lbRupd.setFont(new Font("Verdana",Font.ITALIC,24));
+                lbRupd.setForeground(Color.blue);
+                lbRupd.setBackground(Color.white);
+                lbRupd.setOpaque(true);
+        		lbRupd.setHorizontalAlignment(JLabel.CENTER);
+        		lbRupd.setVerticalAlignment(JLabel.CENTER);
+        		add(lbRupd);
+        		Border border = BorderFactory.createLineBorder(Color.blue);
+        		lbRupd.setBorder(border);
                 String dbURL = "jdbc:oracle:thin:@localhost:1521:xe";
            		String username = "it19737042";
            		String password = "vasavi";
@@ -1068,6 +1151,17 @@ miUpdateR.addActionListener(new ActionListener(){
                 add(lbUAH);
                 bUpdateH.setBounds(200,500,150,30);
                 add(bUpdateH);
+                lbHupd = new JLabel("Hospitals Updation Form");
+        		lbHupd.setBounds(400,30,400,50);
+        		lbHupd.setFont(new Font("Verdana",Font.ITALIC,24));
+                lbHupd.setForeground(Color.blue);
+                lbHupd.setBackground(Color.white);
+                lbHupd.setOpaque(true);
+        		lbHupd.setHorizontalAlignment(JLabel.CENTER);
+        		lbHupd.setVerticalAlignment(JLabel.CENTER);
+        		add(lbHupd);
+        		Border border = BorderFactory.createLineBorder(Color.blue);
+        		lbHupd.setBorder(border);
                 String dbURL = "jdbc:oracle:thin:@localhost:1521:xe";
            		String username = "it19737042";
            		String password = "vasavi";
@@ -1203,6 +1297,17 @@ miUpdateA.addActionListener(new ActionListener(){
         add(lbUPin);
         bUpdateA.setBounds(200,150,150,30);
         add(bUpdateA);
+        lbAupd = new JLabel("Area Updation Form");
+		lbAupd.setBounds(400,30,400,50);
+		lbAupd.setFont(new Font("Verdana",Font.ITALIC,24));
+        lbAupd.setForeground(Color.blue);
+        lbAupd.setBackground(Color.white);
+        lbAupd.setOpaque(true);
+		lbAupd.setHorizontalAlignment(JLabel.CENTER);
+		lbAupd.setVerticalAlignment(JLabel.CENTER);
+		add(lbAupd);
+		Border border = BorderFactory.createLineBorder(Color.blue);
+		lbAupd.setBorder(border);
         String dbURL = "jdbc:oracle:thin:@localhost:1521:xe";
    		String username = "it19737042";
    		String password = "vasavi";
@@ -1303,10 +1408,10 @@ miDeleteR.addActionListener(new ActionListener(){
 		repaint();
 		cDeleteAR= new JComboBox();
 		cDeleteRR = new JComboBox();
-		lbDR = new JLabel("Choose Hospital:");
-		lbDAR = new JLabel("Choose Area: ");
+		lbDR = new JLabel("Choose Area:");
+		lbDAR = new JLabel("Choose Restaurant: ");
 		lbDR.setBounds(100,100,100,30);
-		lbDAR.setBounds(100,300,100,30);
+		lbDAR.setBounds(100,300,200,30);
 		taDeleteR = new JTextArea();
 		add(taDeleteR);
 		taDeleteR.setBounds(500,100,500,500);
@@ -1315,6 +1420,17 @@ miDeleteR.addActionListener(new ActionListener(){
 		bDeleteR = new JButton("DELETE");
 		bDeleteR.setBounds(200,500,150,30);
 		add(bDeleteR);
+		lbRdel = new JLabel("Restaurant Deletion Form");
+		lbRdel.setBounds(350,30,400,50);
+		lbRdel.setFont(new Font("Verdana",Font.ITALIC,24));
+        lbRdel.setForeground(Color.black);
+        lbRdel.setBackground(Color.white);
+        lbRdel.setOpaque(true);
+		lbRdel.setHorizontalAlignment(JLabel.CENTER);
+		lbRdel.setVerticalAlignment(JLabel.CENTER);
+		add(lbRdel);
+		Border border = BorderFactory.createLineBorder(Color.black);
+		lbRdel.setBorder(border);
 	    String dbURL = "jdbc:oracle:thin:@localhost:1521:xe";
    		String username = "it19737042";
    		String password = "vasavi";
@@ -1390,8 +1506,8 @@ miDeleteH.addActionListener(new ActionListener(){
 		repaint();
 		cDeleteAH= new JComboBox();
 		cDeleteHH = new JComboBox();
-		lbDH = new JLabel("Choose Hospital:");
-		lbDA = new JLabel("Choose Area: ");
+		lbDH = new JLabel("Choose Area:");
+		lbDA = new JLabel("Choose Hospital: ");
 		lbDH.setBounds(100,100,100,30);
 		lbDA.setBounds(100,300,100,30);
 		taDeleteH = new JTextArea();
@@ -1402,6 +1518,17 @@ miDeleteH.addActionListener(new ActionListener(){
 		bDeleteH = new JButton("DELETE");
 		bDeleteH.setBounds(200,500,150,30);
 		add(bDeleteH);
+		lbHdel = new JLabel("Hospitals Deletion Form");
+		lbHdel.setBounds(350,30,400,50);
+		lbHdel.setFont(new Font("Verdana",Font.ITALIC,24));
+        lbHdel.setForeground(Color.black);
+        lbHdel.setBackground(Color.white);
+        lbHdel.setOpaque(true);
+		lbHdel.setHorizontalAlignment(JLabel.CENTER);
+		lbHdel.setVerticalAlignment(JLabel.CENTER);
+		add(lbHdel);
+		Border border = BorderFactory.createLineBorder(Color.black);
+		lbHdel.setBorder(border);
 	    String dbURL = "jdbc:oracle:thin:@localhost:1521:xe";
    		String username = "it19737042";
    		String password = "vasavi";
@@ -1488,6 +1615,17 @@ miDeleteH.addActionListener(new ActionListener(){
 		bDeleteA = new JButton("DELETE");
 		bDeleteA.setBounds(200,150,150,30);
 		add(bDeleteA);
+		lbAdel = new JLabel("Area Deletion Form");
+		lbAdel.setBounds(350,30,400,50);
+		lbAdel.setFont(new Font("Verdana",Font.ITALIC,24));
+        lbAdel.setForeground(Color.black);
+        lbAdel.setBackground(Color.white);
+        lbAdel.setOpaque(true);
+		lbAdel.setHorizontalAlignment(JLabel.CENTER);
+		lbAdel.setVerticalAlignment(JLabel.CENTER);
+		add(lbAdel);
+		Border border = BorderFactory.createLineBorder(Color.black);
+		lbAdel.setBorder(border);
 	    String dbURL = "jdbc:oracle:thin:@localhost:1521:xe";
    		String username = "it19737042";
    		String password = "vasavi";
@@ -1569,6 +1707,17 @@ miDeleteH.addActionListener(new ActionListener(){
     		    tfOt     = new JTextField(30);
     		    tfCt     = new JTextField(30);
     		    taR     = new JTextArea();
+    		    lbRIns = new JLabel("Restaurants Insertion Form");
+    			lbRIns.setBounds(300,10,400,30);
+    			lbRIns.setFont(new Font("Verdana",Font.ITALIC,24));
+    	        lbRIns.setForeground(Color.black);
+    	        lbRIns.setBackground(Color.lightGray);
+    	        lbRIns.setOpaque(true);
+    			lbRIns.setHorizontalAlignment(JLabel.CENTER);
+    			lbRIns.setVerticalAlignment(JLabel.CENTER);
+    			add(lbRIns);
+    			Border border = BorderFactory.createLineBorder(Color.black);
+    			lbRIns.setBorder(border);
     		    add(taR);
     			add(lbRName);
     			add(lbAName);
@@ -1668,6 +1817,17 @@ miDeleteH.addActionListener(new ActionListener(){
     		    lbSpec  = new JLabel("Specialization:");
     		    tfHName = new JTextField(30);
     		    tfSpec = new JTextField(30);
+    		    lbHIns = new JLabel("Hospital Insertion Form");
+    			lbHIns.setBounds(350,30,400,50);
+    			lbHIns.setFont(new Font("Verdana",Font.ITALIC,24));
+    	        lbHIns.setForeground(Color.black);
+    	        lbHIns.setBackground(Color.lightGray);
+    	        lbHIns.setOpaque(true);
+    			lbHIns.setHorizontalAlignment(JLabel.CENTER);
+    			lbHIns.setVerticalAlignment(JLabel.CENTER);
+    			add(lbHIns);
+    			Border border = BorderFactory.createLineBorder(Color.black);
+    			lbHIns.setBorder(border);
     			add(lbHName);
     			add(lbAName);
     			add(lbSpec);
@@ -1744,13 +1904,15 @@ miDeleteH.addActionListener(new ActionListener(){
 			repaint();
 			lbADet = new JLabel("AREA DETAILS");
 			lbADet.setBounds(500,30,200,50);
-			lbADet.setFont(new Font("Verdana",Font.PLAIN,24));
+			lbADet.setFont(new Font("Verdana",Font.ITALIC,24));
 	        lbADet.setForeground(Color.white);
 	        lbADet.setBackground(Color.lightGray);
 	        lbADet.setOpaque(true);
 			lbADet.setHorizontalAlignment(JLabel.CENTER);
 			lbADet.setVerticalAlignment(JLabel.CENTER);
 			add(lbADet);
+			Border border = BorderFactory.createLineBorder(Color.black);
+			lbADet.setBorder(border);
 			try {
 				Class.forName("oracle.jdbc.driver.OracleDriver");
 				Connection connection = DriverManager.getConnection(dbURL,username,password);
@@ -1782,13 +1944,15 @@ miDeleteH.addActionListener(new ActionListener(){
 			repaint();
 			lbHDet = new JLabel("HOSPITALS DETAILS");
 			lbHDet.setBounds(500,30,250,50);
-			lbHDet.setFont(new Font("Verdana",Font.PLAIN,24));
+			lbHDet.setFont(new Font("Verdana",Font.ITALIC,24));
 	        lbHDet.setForeground(Color.white);
 	        lbHDet.setBackground(Color.lightGray);
 	        lbHDet.setOpaque(true);
 			lbHDet.setHorizontalAlignment(JLabel.CENTER);
 			lbHDet.setVerticalAlignment(JLabel.CENTER);
 			add(lbHDet);
+			Border border = BorderFactory.createLineBorder(Color.black);
+			lbHDet.setBorder(border);
 			try {
 				Class.forName("oracle.jdbc.driver.OracleDriver");
 				Connection connection = DriverManager.getConnection(dbURL,username,password);
@@ -1819,14 +1983,16 @@ miDeleteH.addActionListener(new ActionListener(){
 			getContentPane().removeAll();
 			repaint();
 			lbRDet = new JLabel("RESTAURANT DETAILS");
-			lbRDet.setBounds(500,30,275,50);
-			lbRDet.setFont(new Font("Verdana",Font.PLAIN,24));
+			lbRDet.setBounds(500,30,300,50);
+			lbRDet.setFont(new Font("Verdana",Font.ITALIC,24));
 	        lbRDet.setForeground(Color.white);
 	        lbRDet.setBackground(Color.lightGray);
 	        lbRDet.setOpaque(true);
 			lbRDet.setHorizontalAlignment(JLabel.CENTER);
 			lbRDet.setVerticalAlignment(JLabel.CENTER);
 			add(lbRDet);
+			Border border = BorderFactory.createLineBorder(Color.BLACK);
+			lbRDet.setBorder(border);
 			try {
 				Class.forName("oracle.jdbc.driver.OracleDriver");
 				Connection connection = DriverManager.getConnection(dbURL,username,password);
@@ -1855,6 +2021,17 @@ miDeleteH.addActionListener(new ActionListener(){
 		//System.exit(0);
 			getContentPane().removeAll();
 			repaint();
+			lbAIns = new JLabel("Area Insertion Form");
+			lbAIns.setBounds(350,30,300,50);
+			lbAIns.setFont(new Font("Verdana",Font.ITALIC,24));
+	        lbAIns.setForeground(Color.black);
+	        lbAIns.setBackground(Color.lightGray);
+	        lbAIns.setOpaque(true);
+			lbAIns.setHorizontalAlignment(JLabel.CENTER);
+			lbAIns.setVerticalAlignment(JLabel.CENTER);
+			add(lbAIns);
+			Border border = BorderFactory.createLineBorder(Color.black);
+			lbAIns.setBorder(border);
 			add(lbAName);
 			add(lbPin);
 			add(tfAName);
@@ -1901,7 +2078,7 @@ miDeleteH.addActionListener(new ActionListener(){
 					
 					
 				} catch (SQLException e) {
-					JOptionPane.showMessageDialog(null,"Invalid Pincode!","ERROR", JOptionPane.ERROR_MESSAGE, null);
+					JOptionPane.showMessageDialog(null,"Unable to insert!","ERROR", JOptionPane.ERROR_MESSAGE, null);
 					
 				} catch (ClassNotFoundException e) {
 					// TODO Auto-generated catch block
